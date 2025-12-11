@@ -13,8 +13,13 @@ class Project extends Model
         return $this->hasMany(Task::class);
     }
 
-    public function user()
+    public function manager()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function staff()
+    {
+        return $this->belongsToMany(User::class);
     }
 }
