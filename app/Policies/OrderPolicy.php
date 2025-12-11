@@ -45,7 +45,7 @@ class OrderPolicy
      */
     public function delete(User $user, Order $order): bool
     {
-        return false;
+        return $user->hasRole(['super admin']);
     }
 
     /**
@@ -53,7 +53,7 @@ class OrderPolicy
      */
     public function restore(User $user, Order $order): bool
     {
-        return false;
+        return $user->hasRole(['super admin']);
     }
 
     /**
@@ -61,6 +61,6 @@ class OrderPolicy
      */
     public function forceDelete(User $user, Order $order): bool
     {
-        return false;
+        return $user->hasRole(['super admin']);
     }
 }
